@@ -1,10 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 class BALL{
-   public:
+   //private:類別內呼叫
+   private:
       int x,y;
       string color;
       int speedx,speedy;
+      void move(){
+      x=x+speedx;
+      y=y+speedy;
+   }
+public:
    BALL(int px=100,int py=200,string col="WHITE",int sx=1,int sy=1){
            x=px;
            y=py;
@@ -15,9 +21,8 @@ class BALL{
    string get_color(){
      return color;
    }
-   void move(){
-      x=x+speedx;
-      y=y+speedy;
+   void set_color(string color){
+      this->color=color;
    }
    void show(){
       cout<<"x="<<x<<endl;
@@ -31,10 +36,12 @@ class BALL{
 int main()
 {
   BALL b1;
-  BALL b2(100,200,"RED",1,2);
+  b1.set_color("BLUE");
+  //BALL b2(100,200,"RED",1,2);
+  //b1.color="GREEN";
   b1.show();
-  b2.show();
-  b1.move();
+ // b2.show();
+  //b1.move();
   b1.show();
-  cout<<b2.get_color()<<endl;
+  //cout<<b2.get_color()<<endl;
 }
